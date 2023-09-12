@@ -1,7 +1,5 @@
 <?php
 
-
-
 // Suoritetaan projektin alustusskripti.
 require_once '../src/init.php';
 
@@ -22,7 +20,6 @@ switch ($request) {
       $formdata = cleanArrayData($_POST);
       require_once CONTROLLER_DIR . 'uusihaku.php';
       $tulos = lisaaHakusana($formdata);
-      print_r($tulos);
       echo "Haku lisätty";
       break;
     } else {
@@ -31,6 +28,6 @@ switch ($request) {
     }
   default:
     echo $templates->render('notfound');
-}    
+}
 
-?> 
+?>
