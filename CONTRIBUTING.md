@@ -7,6 +7,8 @@ Jotta voit osallistua mukaan projektiin, niin tarvitset siihen seuraavat asiat:
  - GitHub-palvelun käyttäjätunnus
  - neutroni-palvelimelle on määritelty SSH-avaimet GitHub-palveluun
 
+Jos sinulla ei ole määritelty SSH-avaimia GitHub-palveluun, niin ohjeet avaimen määrittelyyn löydät [tältä ohjesivulta](https://neutroni.hayo.fi/~pta/book/sovelluksen-julkaisu/valmistelut/ssh-avaimet.html).
+
 ## Projektin kopiointi omalle tunnukselle
 
 Saat projektin toimimaan neutroni-palvelimella omalla tunnuksellasi seuraavilla vaiheilla:
