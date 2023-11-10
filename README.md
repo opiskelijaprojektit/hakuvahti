@@ -12,5 +12,6 @@ Kun olet sopinut toiminnallisuuden toteuttamisesta opettajan kanssa, niin sitten
 
 Seuraavat henkilöt ovat antaneet oman panoksensa tämän projektin toteutukseen. Henkilöt luetellaan aakkosjärjestyksessä.
 
- - Pekka Tapio Aalto 
+ - Pekka Tapio Aalto
+ - Ville Kähkönen
  - Esko Taivalmäki
