@@ -9,14 +9,22 @@
     <th></th>
   </tr>
   <tr>
-    <td><label for="hakusana">Haettu sana:</label></td>
-    <td><input id="hakusana" type="text" name="hakusana"></td>
+    <td>Maria Anders<label for="hakusana">haettu sana:</label></td>
   </tr>
   <tr>
-    <td><label for="email">Sähköposti:</label></td>
-    <td><input id="email" type="text" name="email"></td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
   </tr>
 </table>
+
+<div>
+    
+    
+  </div>
+  <div>
+    <label for="email">sähköposti:</label>
+    <input id="email" type="text" name="email">
+  </div>
   <div>
     <input type="submit" name="laheta" value="Lisää haku">
   </div>
