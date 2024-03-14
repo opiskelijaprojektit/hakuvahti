@@ -10,14 +10,14 @@
   </tr>
   <tr>
     <td><label for="hakusana">Haettu sana:</label></td>
-    <td><input id="hakusana" type="text" name="hakusana"></td>
+    <td><input id="hakusana" type="text" name="hakusana" class="hakukentta"></td>
   </tr>
   <tr>
     <td><label for="email">Sähköposti:</label></td>
-    <td><input id="email" type="text" name="email"></td>
+    <td><input id="email" type="text" name="email" class="spostikentta"></td>
   </tr>
 </table>
   <div>
-    <input type="submit" name="laheta" value="Lisää haku">
+    <input type="submit" name="laheta" value="Lisää haku" class="button">
   </div>
 </form>
