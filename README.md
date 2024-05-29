@@ -14,4 +14,5 @@ Seuraavat henkilöt ovat antaneet oman panoksensa tämän projektin toteutukseen
 
  - Pekka Tapio Aalto
  - Ville Kähkönen
+ - Miro Niska
  - Esko Taivalmäki
