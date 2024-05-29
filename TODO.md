@@ -5,12 +5,12 @@ Tällä sivulla on luettelo toteuttavista toiminnallisuuksista. Sovi luettelosta
 ## Odottaa toteuttamista
 
  - [ ] (**toiminto-ulkoasu**) Sovelluksen ulkoasu vastamaan kuntayhtymän graafista ohjeistusta sekä kotisivujen yleisilmettä. 
- - [ ] (**toiminto-muokkaus**) Tilattujen hakusanojen muokkaussivu, jossa käyttäjä voi halutessaan poistaa tai lisätä hakusanoja. Muokkaussivulle pääsee yksilöllisellä tunnisteella, joka on tallennettu käyttäjätauluun.
  - [ ] (**toiminto-poisto-taustalla**) Kerran päivässä ajettava skripti, joka tarkistaa, onko käyttäjän hakusana voimassaoloaika päättynyt ja poistaa sen tarvittaessa. Poistaa lopuksi myös käyttäjän, jos käyttäjälle ei jää enää yhtään hakusanaa.
  - [ ] (**toiminto-läpikäynti-kooste**) Muokataan läpikäynti koostamaan löytyneet hakusanat yhteen sähköpostiin ja lähettää koosteen käyttäjän sähköpostiin löytyneistä kursseista. Koosteeseen sisällytetään myös linkit löytyneisiin koulutuksiin.
 
 ## Keskeneräiset
- 
+
+ - [ ] (**toiminto-muokkaus**) Tilattujen hakusanojen muokkaussivu, jossa käyttäjä voi halutessaan poistaa tai lisätä hakusanoja. Muokkaussivulle pääsee yksilöllisellä tunnisteella, joka on tallennettu käyttäjätauluun.
 
 ## Valmiit ✓
 
