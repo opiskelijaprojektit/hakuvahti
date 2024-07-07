@@ -26,6 +26,28 @@ switch ($request) {
       echo $templates->render('uusihaku');
       break;
     }
+  case '/muokkaus':
+    // Tarkistetaan, onko tunniste annettu.
+    require_once MODEL_DIR . 'kayttaja.php';
+    $tunniste = haeKayttajaAvaimella($_GET['avain']);
+    if ($tunniste) {
+      $hakusanat = haeKayttajanHautIdlla($tunniste['idkayttaja']);
+      // Tarkistetaan, onko lomakkeelta lähetetty tietoa.
+      if (isset($_POST['poista'])) {
+        $formdata = cleanArrayData($_POST);
+        require_once CONTROLLER_DIR . 'poistahaku.php';
+        $tulos = poistaHakusana($formdata);
+        echo "Haku poistettu";
+        break;
+      } else {
+        echo $templates->render('hakumuokkaus',['tunniste' => $tunniste,
+                                              'hakusanat' => $hakusanat]);
+        break;
+      }
+    } else {
+      echo $templates->render('tunnistenotfound');
+    }
+    break;
   default:
     echo $templates->render('notfound');
 }
