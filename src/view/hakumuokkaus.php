@@ -28,3 +28,14 @@ foreach ($hakusanat as $hakusana) {
 
 ?>
 </div>
+
+<h1>Lisää hakusana</h1>
+
+<form action="" method="POST">
+    <?php echo "<input type='hidden' name='email' value='$tunniste[email]'>"; ?>
+    <label for="hakusana">Haettu sana:</label>
+    <input id="hakusana" type="text" name="hakusana" class="hakukentta">
+    <div>
+        <input type="submit" name="lisaa" value="Lisää haku" class="button">
+    </div>
+</form>

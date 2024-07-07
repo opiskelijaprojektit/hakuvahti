@@ -32,12 +32,19 @@ switch ($request) {
     $tunniste = haeKayttajaAvaimella($_GET['avain']);
     if ($tunniste) {
       $hakusanat = haeKayttajanHautIdlla($tunniste['idkayttaja']);
-      // Tarkistetaan, onko lomakkeelta lähetetty tietoa.
+      // Tarkistetaan, onko lomakkeelta lähetetty hakusananpoisto.
       if (isset($_POST['poista'])) {
         $formdata = cleanArrayData($_POST);
         require_once CONTROLLER_DIR . 'poistahaku.php';
         $tulos = poistaHakusana($formdata);
         echo "Haku poistettu";
+        break;
+      // Tarkistetaan, onko lomakkeelta lähetetty hakusananlisäys.
+      } elseif (isset($_POST['lisaa'])) {
+        $formdata = cleanArrayData($_POST);
+        require_once CONTROLLER_DIR . 'uusihaku.php';
+        $tulos = lisaaHakusana($formdata);
+        echo "Haku lisätty";
         break;
       } else {
         echo $templates->render('hakumuokkaus',['tunniste' => $tunniste,
