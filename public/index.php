@@ -37,14 +37,20 @@ switch ($request) {
         $formdata = cleanArrayData($_POST);
         require_once CONTROLLER_DIR . 'poistahaku.php';
         $tulos = poistaHakusana($formdata);
-        echo "Haku poistettu";
+        if ($tulos['status'] == "200") {
+          header("Location: https://neutroni.hayo.fi" . $_SERVER['REQUEST_URI']);
+          break;
+        }
         break;
       // Tarkistetaan, onko lomakkeelta lähetetty hakusananlisäys.
       } elseif (isset($_POST['lisaa'])) {
         $formdata = cleanArrayData($_POST);
         require_once CONTROLLER_DIR . 'uusihaku.php';
         $tulos = lisaaHakusana($formdata);
-        echo "Haku lisätty";
+        if ($tulos['status'] == "200") {
+          header("Location: https://neutroni.hayo.fi" . $_SERVER['REQUEST_URI']);
+          break;
+        }
         break;
       } else {
         echo $templates->render('hakumuokkaus',['tunniste' => $tunniste,
