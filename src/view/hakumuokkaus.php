@@ -19,7 +19,7 @@ foreach ($hakusanat as $hakusana) {
                 echo "<input type='hidden' name='idhakusana' value='$hakusana[idhakusana]'>";
             echo "</div>";
             echo "<div>";
-                echo "<input type='submit' name='poista' value='Poista'>";
+                echo "<input type='submit' name='poista' value='Poista' class='button'>";
             echo "</div>";
         echo "</form>";
         //echo "<div>$hakusana[aika]</div>";
