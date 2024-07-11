@@ -38,7 +38,8 @@ switch ($request) {
         require_once CONTROLLER_DIR . 'poistahaku.php';
         $tulos = poistaHakusana($formdata);
         if ($tulos['status'] == "200") {
-          header("Location: https://neutroni.hayo.fi" . $_SERVER['REQUEST_URI']);
+          //echo $_SERVER['HTTP_HOST'];
+          header("Location: https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
           break;
         }
         break;
@@ -48,7 +49,7 @@ switch ($request) {
         require_once CONTROLLER_DIR . 'uusihaku.php';
         $tulos = lisaaHakusana($formdata);
         if ($tulos['status'] == "200") {
-          header("Location: https://neutroni.hayo.fi" . $_SERVER['REQUEST_URI']);
+          header("Location: https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
           break;
         }
         break;
