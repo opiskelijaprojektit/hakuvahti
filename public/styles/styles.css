@@ -1,3 +1,4 @@
+/***VARIABLES***/	
 
 :root {
 	--primary-darkest: #171e2a;
@@ -14,18 +15,65 @@
     --input-bg-light: #f5f5f5;
     --input-padding: 8px 10px;
     --input-min-height: 58px;
-}
-
+	--font-open-sans: "Open Sans", Arial, Helvetica, sans-serif;
+  	--font-poppins: "Poppins", Arial, Helvetica, sans-serif;
+	}
+	
+/***GENERAL***/	
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	}
+
+html {
+	font-size: 62.5%;
 }
 
+main {
+	display: flex;
+	flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-poppins);
+	color: var(--primary);
+}
+
+.link {
+	
+}
+
+/***HEADER***/
+
+.title {
+	font-size: 1.5rem;
+	text-align: center;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.title_link {
+	all: unset;
+	cursor: pointer;
+}
+
+.sasky_logo_header {
+	max-width: 12rem;
+}
+
+/***SECTION***/	
+
+
+
+/***FOOTER***/	
+
+
+		
+/*
 body {
   font-family: "Open Sans", sans-serif;
-/* background-color: #C7CCD5;*/
   min-height: 100vh;
   max-width: 40rem;
   margin: 0 auto;
@@ -34,7 +82,7 @@ body {
 }
 
 header {
- /* background-color: #3A4A6A;*/
+
 	background-color: #eef0f2;
   padding: 1rem 1.5rem;
 }
@@ -66,7 +114,7 @@ hr {
 
 input {
 	border: 1px solid #999;
-	padding: 0.45rem/
+	padding: 0.45rem;
 	font-size: 1rem;
 	color: #3A4A6A;
 }
@@ -138,7 +186,6 @@ text-align: center;
 	position: fixed;
 	bottom: 0;
 	width: 640px;
-	/*height: auto; height: 470px;*/
 	height: auto;
 	text-align: center;
 	display: block;
@@ -209,7 +256,7 @@ a:hover {
 .footer__bottom {
 	padding-bottom: 26px;
 	padding-top: 26px;
-	display: table-cell; /*Pois?*/
+	display: table-cell;
 }
 
 .linkki1{
@@ -236,7 +283,8 @@ ul {
 	border-top: 1px solid;
 	justify-content: space-between;
 	display: table;
-	width: 100%; /*Optional*/
-	table-layout: fixed; /*Optional*/
-	border-spacing: 10px; /*Optional*/
+	width: 100%;
+	table-layout: fixed; 
+	border-spacing: 10px; 
 }
+*/
