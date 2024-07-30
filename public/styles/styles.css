@@ -27,6 +27,7 @@
 	box-sizing: border-box;
 	}
 
+/* muuttaa sivun oletus fonttikoon 16px -> 10px joten esim. 10rem on 100px */
 html {
 	font-size: 62.5%;
 }
@@ -34,6 +35,7 @@ html {
 main {
 	display: flex;
 	flex-direction: column;
+	min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -41,17 +43,21 @@ h1, h2, h3, h4, h5, h6 {
 	color: var(--primary);
 }
 
-.link {
-	
+p {
+	color: var(--primary);
+	font-size: 1.6rem;
+	font-family: var(--font-open-sans);
 }
 
 /***HEADER***/
 
+.header {
+	padding: 3.2rem;
+}
+
 .title {
 	font-size: 1.5rem;
-	text-align: center;
 	font-weight: 600;
-	text-decoration: none;
 }
 
 .title_link {
@@ -59,17 +65,97 @@ h1, h2, h3, h4, h5, h6 {
 	cursor: pointer;
 }
 
-.sasky_logo_header {
+.logo {
 	max-width: 12rem;
+	max-height: 100%;
 }
 
 /***SECTION***/	
 
+.section {
+	padding: 3.2rem;
+	background-color: var(--neutral-lighter);
+}
 
+.content_box {
+	display: grid;
+	background-color: var(--neutral-lightest);
+	padding: 3.2rem;
+}
 
-/***FOOTER***/	
+.input_form {
+	display: grid;
+	grid-template-rows: auto;
+}
 
+.input_field {
+	border: 1px solid var(--primary);
+	min-height: var(--input-min-height);
+	padding: 8px 10px;
+	font-size: 100%;
+	background-color: var(--neutral-lightest);
+}
 
+.button {
+	background-color: var(--secondary);
+	color: var(--primary);
+	font-weight: 600;
+	line-height: 1.2;
+	min-height: var(--input-min-height);
+	min-width: 44px;
+	padding: 8px 32px;
+	font-family: var(--font-open-sans);
+	font-size: 1.6rem;
+	border: none;
+}
+
+/***FOOTER***/
+
+.footer {
+	display: grid;
+	background-color: var(--neutral-darkest);
+	padding: 3.2rem;
+}
+
+.footer_bottom {
+	display: grid;
+	border-top: 1px solid var(--neutral-lightest);
+}
+
+.logo_footer {
+	fill: var(--neutral-lightest);
+}
+
+.footer_text_box {
+	color: var(--neutral);
+}
+
+.copyright {
+	color: var(--neutral-lightest);
+}
+
+.link_icon {
+	fill: var(--secondary);
+}
+
+.footer_bottom_link {
+	all: unset;
+	color: var(--neutral);
+}
+
+.screen-reader-text {
+	border: 0 !important;
+	clip: rect(1px, 1px, 1px, 1px) !important;
+	-webkit-clip-path: inset(50%) !important;
+	clip-path: inset(50%) !important;
+	height: 1px !important;
+	overflow: hidden !important;
+	margin: -1px !important;
+	padding: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
+	white-space: nowrap !important;
+  }
 		
 /*
 body {
@@ -233,7 +319,7 @@ a:hover {
     left: -4px;
     opacity: 0;
     position: absolute;
-    right: -4px;
+    center: -4px;
     top: -4px;
 }
 .footer__social-links-link, .footer__social-links-link:after {
