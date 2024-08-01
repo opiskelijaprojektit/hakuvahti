@@ -72,7 +72,6 @@
 						<p class="copyright">&#169; SASKY 2024</p>
 					</div>
 				</div>
-
 			</footer>
 		</main>	
 	</body>
