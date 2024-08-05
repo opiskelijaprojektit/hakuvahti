@@ -1,7 +1,7 @@
 <?php $this->layout('template', ['title' => 'Haku']) ?>
 
 <div class="content_box">
-  <h2 class="form_title">Lisää haku</h2>
+  <h2 class="form_title">Lisää hakusana</h2>
   <form action="" method="POST" class="form">
       <svg class="form_item_1 icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M12.237 7a4.999 4.999 0 10-9.998-.001 4.999 4.999 0 009.998 0zm-.965 5.096A6.498 6.498 0 01.739 7 6.497 6.497 0 017.237.5a6.498 6.498 0 015.096 10.533l4.184 4.184a.75.75 0 01-1.06 1.06l-4.186-4.181z"/></svg>
       <input id="hakusana" type="text" name="hakusana" placeholder="Hae sanaa" class="form_item_2 input_field">
