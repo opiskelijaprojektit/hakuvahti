@@ -1,3 +1,4 @@
+
 <?php
 
 // Suoritetaan projektin alustusskripti.
