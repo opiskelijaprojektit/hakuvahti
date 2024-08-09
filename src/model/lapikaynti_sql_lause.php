@@ -30,5 +30,20 @@ function hae_kayttajat() {
     return $tulos;
 }
 
+/**
+ * Hakee tietokannasta yksittäisen käyttäjän hakusanat.
+ * Palauttaa tulokset assosiatiivisena taulukkona.
+ * 
+ * @author Annastiina Koivu
+ */
+
+function hae_kayttaja_hakusanat($idkayttaja) {
+    $kysely = "SELECT hakusana FROM hakuvahti_hakusana WHERE idkayttaja = $idkayttaja";
+
+    $tulos = DB::run($kysely)->fetchAll(PDO::FETCH_ASSOC);
+
+    return $tulos;
+}
+
 
 ?>

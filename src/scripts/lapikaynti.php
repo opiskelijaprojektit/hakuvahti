@@ -22,9 +22,14 @@ $kayttajat = hae_kayttajat();
 foreach ($kayttajat as $kayttaja => $tiedot) {
     $idkayttaja = $tiedot['idkayttaja'];
     $email = $tiedot['email'];
+    echo "Käyttäjä:" . $email . "\n";
+    echo "----------" . "\n";
 
-    echo $idkayttaja . "\n";
-    echo $email . "\n";
+    $kayttaja_hakusanat = hae_kayttaja_hakusanat($idkayttaja);
+
+    foreach ($kayttaja_hakusanat as $key => $value) {
+        echo "Hakusana:" . $value['hakusana'] . "\n";
+    }
     echo "----------" . "\n";
 }
 
