@@ -1,8 +1,15 @@
 <?php
 
-//@author Ville Kähkönen
+/**
+ * Kerran päivässä ajettava scripti, 
+ * joka hakee Wilman rajapinnasta käyttäjän hakusanoja vastaavat kurssit.
+ * 
+ * @author Annastiina Koivu
+ * @author Ville Kähkönen
+ */
 
-// vaadittavat tiedostot
+
+// Vaadittavat tiedostot
 require_once '../../config/config.php';
 require_once HELPERS_DIR . 'DB.php';
 require_once MODEL_DIR . 'kurssit.php';
@@ -17,16 +24,20 @@ echo "----------" . "\n";
 
 // Haetaan kaikki kurssit
 $kurssit_haun_mukaan = getCoursesWithSearchData();
+// Haetaan kaikki käyttäjät
 $kayttajat = hae_kayttajat();
 
+// Käydään käyttäjät yksitellen läpi
 foreach ($kayttajat as $kayttaja => $tiedot) {
     $idkayttaja = $tiedot['idkayttaja'];
     $email = $tiedot['email'];
     echo "Käyttäjä:" . $email . "\n";
     echo "----------" . "\n";
 
+    // Haetaan kyseisen käyttäjän kaikki hakusanat
     $kayttaja_hakusanat = hae_kayttaja_hakusanat($idkayttaja);
 
+    // Käydään hakusanat yksitellen läpi
     foreach ($kayttaja_hakusanat as $key => $value) {
         echo "Hakusana:" . $value['hakusana'] . "\n";
     }
