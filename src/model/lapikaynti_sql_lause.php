@@ -15,5 +15,20 @@ function lapikaynti_sql_lause() {
   return $tulos;
 }
 
+/**
+ * Hakee tietokannasta käyttäjien id:n, sekä emailin.
+ * Palauttaa tulokset assosiatiivisena taulukkona.
+ * 
+ * @author Annastiina Koivu
+ */
+
+function hae_kayttajat() {
+    $kysely = "SELECT idkayttaja, email FROM hakuvahti_kayttaja";
+
+    $tulos = DB::run($kysely)->fetchAll(PDO::FETCH_ASSOC);
+
+    return $tulos;
+}
+
 
 ?>
