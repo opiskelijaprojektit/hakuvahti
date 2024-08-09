@@ -31,18 +31,22 @@ $kayttajat = hae_kayttajat();
 foreach ($kayttajat as $kayttaja => $tiedot) {
     $idkayttaja = $tiedot['idkayttaja'];
     $email = $tiedot['email'];
-    echo "Käyttäjä: " . $email . "\n";
-    echo "--------------------------------------" . "\n";
 
     // Haetaan kyseisen käyttäjän kaikki hakusanat
     $kayttaja_hakusanat = hae_kayttaja_hakusanat($idkayttaja);
 
+    // Alustetaan muuttuja, 
+    // johon koostetaan hakusanoilla löytyneet kurssit
+    // 'hakusana' => 'hakutulos'
+    $loytyneet_kurssit = array();
+
     // Käydään hakusanat yksitellen läpi
     foreach ($kayttaja_hakusanat as $key => $value) {
         $hakusana = $value['hakusana'];
-        echo "Hakusana: " . $hakusana . "\n";
-        echo "++++++++" . "\n";
-        echo "\n";
+
+        // Alustetaan muuttuja,
+        // johon kerätään kurssien tiedot
+        $hakutulos = array();
 
         // Käydään läpi haettu kurssidata,
         // ja etsitään sieltä hakusanaa.
@@ -57,30 +61,55 @@ foreach ($kayttajat as $kayttaja => $tiedot) {
                     $hash = $coursedata["hash"];
                     
                     // Etsitään hakusanaa kurssidatasta
-                    if(stripos($teksti, $hakusana) !== false) { 
-                        // Hakusana löytyi, tulostetaan komentoriville testikäytössä.
-                        echo "Koulutus: " . $coursedata['Koulutus'] . "\n";
-                        echo "Oppilaitos: " . $coursedata['Oppilaitos'] . "\n";
-                        echo "-------\n";
-                
-                        // //hakusana löytyi, lähetetään sähköpostia tilaajalle
-                        // $html_pohja = file_get_contents('sahkoposti_pohja.html'); //Luodaan HTML-pohja
-                        // $subject = "Hakusanasi löytyi koulutuksista";
-                        
-                        // $message = str_replace('[HAKUSANA]', $hakusana, $html_pohja); //Korvaa [HAKUSANA]-kohdan HTML-pohjassa
-                
-                        // $headers = "MIME-Version: 1.0" . "\r\n";
-                        // $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-                        // $headers .= "From: neutroni.hayo.fi";
-                        
-                
-                        // mail($email, $subject, $message, $headers);
-
+                    if(stripos($teksti, $hakusana) !== false) {
+                        // Hakusana löytyy, napataan halutut kurssitiedot muuttujaan
+                        $kurssi_tiedot = array( "Koulutus" => $coursedata['Koulutus'],
+                                                "Oppilaitos" => $coursedata['Oppilaitos'],
+                                                "Tutkintotyyppi" => $coursedata['Tutkintotyyppi'],
+                                                "Linkki" => $coursedata['Tutkinnon perusteet']);
+                        $hakutulos[] = $kurssi_tiedot;
                     }
                 }
             }
         }
+
+        $loytyneet_kurssit[$hakusana] = $hakutulos;
     }
+
+    // Testikäyttöön tarkoitettu tulostus
+    echo "\n";
+    echo "Käyttäjä: " . $email . "\n";
+    echo "--------------------------------------" . "\n";
+    foreach ($loytyneet_kurssit as $hakusana => $hakutulos) {
+        echo "HAKUSANALLA " . $hakusana . " löytyi " . count($hakutulos) . " tulosta:" . "\n";
+        echo "+++++++\n";
+
+        foreach ($hakutulos as $kurssi) {
+            echo "Koulutus:\t" . $kurssi['Koulutus'] . "\n";
+            echo "Oppilaitos:\t" . $kurssi['Oppilaitos'] . "\n";
+            echo "Tutkintotyyppi:\t" . $kurssi['Tutkintotyyppi'] . "\n";
+            echo "Linkki:\t\t" . $kurssi['Linkki'] . "\n";
+            echo "-------\n";
+        }
+
+        echo "\n";
+    }
+
+
+    // //hakusana löytyi, lähetetään sähköpostia tilaajalle
+    // $html_pohja = file_get_contents('sahkoposti_pohja.html'); //Luodaan HTML-pohja
+    // $subject = "Hakusanasi löytyi koulutuksista";
+    
+    // $message = str_replace('[HAKUSANA]', $hakusana, $html_pohja); //Korvaa [HAKUSANA]-kohdan HTML-pohjassa
+
+    // $headers = "MIME-Version: 1.0" . "\r\n";
+    // $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    // $headers .= "From: neutroni.hayo.fi";
+    
+
+    // mail($email, $subject, $message, $headers);
+
+
 }
 
 
