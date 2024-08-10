@@ -1,9 +1,10 @@
 <!----------------------------------------->
+<!--------- @author Annastiina Koivu------->
 <!--------- @author Ville Kähkönen--------->
 <!----------------------------------------->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 
 <head>
   <meta charset="UTF-8">
@@ -15,15 +16,10 @@
 <body
   style="font-family: 'Times New Roman', Times, serif; max-width: 600px; margin: 0 auto; height: auto; padding: 15px; box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; margin: 10px;">
   <header>
-    <h1 style="font-size: 32px; text-align: center;">Hakuvahti ilmoitus</h1>
+    <h1 style="font-size: 32px; text-align: center;">Hakuvahti ilmoittaa</h1>
   </header>
   <main>
-    <h2 style="text-align: center; font-size: 20px;">Löysimme hakuasi vastaavan koulutuksen</h2>
-    <br />
-    <p style="text-align: center;"><strong>Hakusana: </strong></p>
-    <p style="text-align: center;">[HAKUSANA]</p>
-    <br />
-    <br />
+    <?=$this->section('content')?>
   </main>
   <footer>
     <p style="text-align: center;">Terveisin:</p>
