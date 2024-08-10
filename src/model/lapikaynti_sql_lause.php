@@ -1,11 +1,8 @@
 <?php
 
-// Tässä tiedostossa kaikki scripts/läpikäynti.php:n käyttämät SQL-lauseet.
-
-
 /**
  * Tämä funktio on scripts/lapikaynti.php:n
- * edellisen version SQL-lause.
+ * ensimmäisen version SQL-lause.
  * 
  * @author: Ville Kähkönen
  */
@@ -22,10 +19,12 @@ function lapikaynti_sql_lause() {
 
 
 /**
- * Hakee tietokannasta käyttäjien id:n, sekä emailin.
- * Palauttaa käyttäjät assosiatiivisena taulukkona.
+ * Hakee tietokannasta kaikkien käyttäjien idkayttaja ja email.
  * 
  * @author Annastiina Koivu
+ * 
+ * @return array palauttaa tiedot assosiatiivisessa taulukossa
+ *
  */
 
 function hae_kayttajat() {
@@ -38,10 +37,14 @@ function hae_kayttajat() {
 
 
 /**
- * Hakee tietokannasta yksittäisen käyttäjän hakusanat.
- * Palauttaa käyttäjän hakusanat assosiatiivisena taulukkona.
+ * Hakee tietokannasta yksittäisen käyttäjän hakusanat käyttäjän id:llä.
  * 
  * @author Annastiina Koivu
+ * 
+ * @param string $idkayttaja    käyttäjän id tietokannassa
+ * 
+ * @return array                palauttaa hakusanat assosiatiivisessa taulukossa
+ * 
  */
 
 function hae_kayttaja_hakusanat($idkayttaja) {
