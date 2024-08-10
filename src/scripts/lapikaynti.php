@@ -1,12 +1,14 @@
 <?php
 
 /**
- * Kerran päivässä ajettava scripti, 
- * joka hakee Wilman rajapinnasta käyttäjän hakusanoja vastaavat kurssit.
+ * Kerran päivässä ajettava scripti.
+ * 
+ * Hakee Wilman rajapinnasta käyttäjän hakusanoja vastaavat kurssit,
+ * ja lähettää niistä käyttäjälle koosteen sähköpostiin.
  * 
  * @author Annastiina Koivu
  * @author Ville Kähkönen
- */
+*/
 
 
 // Vaadittavat tiedostot
@@ -14,6 +16,7 @@ require_once '../../config/config.php';
 require_once HELPERS_DIR . 'DB.php';
 require_once MODEL_DIR . 'kurssit.php';
 require_once MODEL_DIR . 'lapikaynti_sql_lause.php';
+require_once 'email_kayttajalle.php';
 
 
 // Testikäyttöön tarkoitettu tulostus
@@ -79,36 +82,33 @@ foreach ($kayttajat as $kayttaja => $tiedot) {
     // Testikäyttöön tarkoitettu tulostus
     echo "\n";
     echo "Käyttäjä: " . $email . "\n";
-    echo "--------------------------------------" . "\n";
-    foreach ($loytyneet_kurssit as $hakusana => $hakutulos) {
-        echo "HAKUSANALLA " . $hakusana . " löytyi " . count($hakutulos) . " tulosta:" . "\n";
-        echo "+++++++\n";
+    // echo "--------------------------------------" . "\n";
+    // foreach ($loytyneet_kurssit as $hakusana => $hakutulos) {
+    //     echo "HAKUSANALLA " . $hakusana . " löytyi " . count($hakutulos) . " tulosta:" . "\n";
+    //     echo "+++++++\n";
 
-        foreach ($hakutulos as $kurssi) {
-            echo "Koulutus:\t" . $kurssi['Koulutus'] . "\n";
-            echo "Oppilaitos:\t" . $kurssi['Oppilaitos'] . "\n";
-            echo "Tutkintotyyppi:\t" . $kurssi['Tutkintotyyppi'] . "\n";
-            echo "Linkki:\t\t" . $kurssi['Linkki'] . "\n";
-            echo "-------\n";
-        }
+    //     foreach ($hakutulos as $kurssi) {
+    //         echo "Koulutus:\t" . $kurssi['Koulutus'] . "\n";
+    //         echo "Oppilaitos:\t" . $kurssi['Oppilaitos'] . "\n";
+    //         echo "Tutkintotyyppi:\t" . $kurssi['Tutkintotyyppi'] . "\n";
+    //         echo "Linkki:\t\t" . $kurssi['Linkki'] . "\n";
+    //         echo "-------\n";
+    //     }
 
-        echo "\n";
-    }
+    //     echo "\n";
+    // }
 
 
-    // //hakusana löytyi, lähetetään sähköpostia tilaajalle
-    // $html_pohja = file_get_contents('sahkoposti_pohja.html'); //Luodaan HTML-pohja
-    // $subject = "Hakusanasi löytyi koulutuksista";
-    
-    // $message = str_replace('[HAKUSANA]', $hakusana, $html_pohja); //Korvaa [HAKUSANA]-kohdan HTML-pohjassa
+    // Käyttäjän hakusanat ja niillä löydetyt kurssit koostettu,
+    // lähetetään sähköpostia käyttäjälle.
 
-    // $headers = "MIME-Version: 1.0" . "\r\n";
-    // $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    // $headers .= "From: neutroni.hayo.fi";
-    
+    $subject = "Hakusanasi löytyi koulutuksista";
 
-    // mail($email, $subject, $message, $headers);
+    $templ = 'lapikaynti';
 
+    $muuttujat = ['hakusana' => 'TOIMII'];
+
+    laheta_email($email, $subject, $templ, $muuttujat);
 
 }
 
