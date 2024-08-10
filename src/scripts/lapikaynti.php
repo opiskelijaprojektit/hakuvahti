@@ -40,7 +40,7 @@ foreach ($kayttajat as $kayttaja => $tiedot) {
 
     // Alustetaan muuttuja, 
     // johon koostetaan hakusanoilla löytyneet kurssit
-    // 'hakusana' => 'hakutulos'
+    // ['hakusana' => hakutulos()]
     $loytyneet_kurssit = array();
 
     // Käydään hakusanat yksitellen läpi
@@ -79,36 +79,41 @@ foreach ($kayttajat as $kayttaja => $tiedot) {
         $loytyneet_kurssit[$hakusana] = $hakutulos;
     }
 
-    // Testikäyttöön tarkoitettu tulostus
-    echo "\n";
-    echo "Käyttäjä: " . $email . "\n";
-    // echo "--------------------------------------" . "\n";
-    // foreach ($loytyneet_kurssit as $hakusana => $hakutulos) {
-    //     echo "HAKUSANALLA " . $hakusana . " löytyi " . count($hakutulos) . " tulosta:" . "\n";
-    //     echo "+++++++\n";
-
-    //     foreach ($hakutulos as $kurssi) {
-    //         echo "Koulutus:\t" . $kurssi['Koulutus'] . "\n";
-    //         echo "Oppilaitos:\t" . $kurssi['Oppilaitos'] . "\n";
-    //         echo "Tutkintotyyppi:\t" . $kurssi['Tutkintotyyppi'] . "\n";
-    //         echo "Linkki:\t\t" . $kurssi['Linkki'] . "\n";
-    //         echo "-------\n";
-    //     }
-
-    //     echo "\n";
-    // }
-
 
     // Käyttäjän hakusanat ja niillä löydetyt kurssit koostettu,
-    // lähetetään sähköpostia käyttäjälle.
+    // katsotaan löytyikö hakusanalla kursseja.
+    if (count($loytyneet_kurssit) > 0) {
 
-    $subject = "Hakusanasi löytyi koulutuksista";
+        // Testikäyttöön tarkoitettu tulostus
+        echo "\n";
+        echo "Käyttäjä: " . $email . "\n";
+        // echo "--------------------------------------" . "\n";
+        // foreach ($loytyneet_kurssit as $hakusana => $hakutulos) {
+        //     echo "HAKUSANALLA " . $hakusana . " löytyi " . count($hakutulos) . " tulosta:" . "\n";
+        //     echo "+++++++\n";
 
-    $templ = 'lapikaynti';
+        //     foreach ($hakutulos as $kurssi) {
+        //         echo "Koulutus:\t" . $kurssi['Koulutus'] . "\n";
+        //         echo "Oppilaitos:\t" . $kurssi['Oppilaitos'] . "\n";
+        //         echo "Tutkintotyyppi:\t" . $kurssi['Tutkintotyyppi'] . "\n";
+        //         echo "Linkki:\t\t" . $kurssi['Linkki'] . "\n";
+        //         echo "-------\n";
+        //     }
+        //     echo "\n";
+        // }
 
-    $muuttujat = ['hakusana' => 'TOIMII'];
 
-    laheta_email($email, $subject, $templ, $muuttujat);
+        // Lähetetään kooste käyttäjälle.
+
+        $subject = "Hakusanasi löytyi koulutuksista";
+
+        $templ = 'lapikaynti';
+
+        $muuttujat = ['kurssit' => $loytyneet_kurssit];
+
+        laheta_email($email, $subject, $templ, $muuttujat);
+
+    }
 
 }
 
