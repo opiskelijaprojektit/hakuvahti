@@ -42,4 +42,21 @@ function lisaaKayttaja($email) {
   return array("idkayttaja"=>DB::lastInsertId(), "email"=>$email, "avain"=>$avain);
 }
 
+/**
+ * Hakee tietokannasta kaikkien käyttäjien idkayttaja ja email.
+ * 
+ * @author Annastiina Koivu
+ * 
+ * @return array palauttaa tiedot assosiatiivisessa taulukossa
+ *
+ */
+
+function hae_kayttajat() {
+    $kysely = "SELECT idkayttaja, email FROM hakuvahti_kayttaja";
+
+    $tulos = DB::run($kysely)->fetchAll(PDO::FETCH_ASSOC);
+
+    return $tulos;
+}
+
 ?>

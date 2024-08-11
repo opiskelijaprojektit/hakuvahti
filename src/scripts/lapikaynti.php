@@ -15,7 +15,8 @@
 require_once '../../config/config.php';
 require_once HELPERS_DIR . 'DB.php';
 require_once MODEL_DIR . 'kurssit.php';
-require_once MODEL_DIR . 'lapikaynti_sql_lause.php';
+require_once MODEL_DIR . 'kayttaja.php';
+require_once MODEL_DIR . 'hakusana.php';
 require_once 'email_kayttajalle.php';
 
 

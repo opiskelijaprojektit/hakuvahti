@@ -17,4 +17,23 @@ function lisaaHakusanaKayttajalle($idkayttaja,$hakusana) {
   return DB::lastInsertId();
 }
 
+/**
+ * Hakee tietokannasta yksittäisen käyttäjän hakusanat käyttäjän id:llä.
+ * 
+ * @author Annastiina Koivu
+ * 
+ * @param string $idkayttaja    käyttäjän id tietokannassa
+ * 
+ * @return array                palauttaa hakusanat assosiatiivisessa taulukossa
+ * 
+ */
+
+function hae_kayttaja_hakusanat($idkayttaja) {
+    $kysely = "SELECT hakusana FROM hakuvahti_hakusana WHERE idkayttaja = $idkayttaja";
+
+    $tulos = DB::run($kysely)->fetchAll(PDO::FETCH_ASSOC);
+
+    return $tulos;
+}
+
 ?>
