@@ -20,9 +20,9 @@ require_once 'email_kayttajalle.php';
 
 
 // Testikäyttöön tarkoitettu tulostus
-echo "Tietokanta:" . $_SERVER["DB_DATABASE"] . "\n";
-echo "Käyttäjä:" . $_SERVER["DB_USERNAME"] . "\n";
-echo "----------" . "\n";
+// echo "Tietokanta:" . $_SERVER["DB_DATABASE"] . "\n";
+// echo "Käyttäjä:" . $_SERVER["DB_USERNAME"] . "\n";
+// echo "----------" . "\n";
 
 
 // Haetaan kaikki kurssit
@@ -85,8 +85,8 @@ foreach ($kayttajat as $kayttaja => $tiedot) {
     if (count($loytyneet_kurssit) > 0) {
 
         // Testikäyttöön tarkoitettu tulostus
-        echo "\n";
-        echo "Käyttäjä: " . $email . "\n";
+        // echo "\n";
+        // echo "Käyttäjä: " . $email . "\n";
         // echo "--------------------------------------" . "\n";
         // foreach ($loytyneet_kurssit as $hakusana => $hakutulos) {
         //     echo "HAKUSANALLA " . $hakusana . " löytyi " . count($hakutulos) . " tulosta:" . "\n";
