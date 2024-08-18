@@ -7,7 +7,7 @@ require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../src/helpers/DB.php';
 
 // Hakusanan voimassaoloaika (30 päivää)
-$voimassaOlo = 30;
+$voimassaOlo = 1;
 
 try {
     // Haetaan kaikki hakusanat, jotka ovat vanhentuneet
