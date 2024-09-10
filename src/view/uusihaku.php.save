@@ -1,0 +1,31 @@
+<?php $this->layout('template', ['title' => 'Haku']) ?>
+
+<h1>Lisää haku</h1>
+
+<form action="" method="POST">
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Maria Anders<label for="hakusana">haettu sana:</label></td>
+  </tr>
+  <tr>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+</table>
+
+<div>
+    
+    
+  </div>
+  <div>
+    <label for="email">sähköposti:</label>
+    <input id="email" type="text" name="email">
+  </div>
+  <div>
+    <input type="submit" name="laheta" value="Lisää haku">
+  </div>
+</form>
