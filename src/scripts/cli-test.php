@@ -17,4 +17,12 @@
   echo "Tietokanta:" . $_SERVER["DB_DATABASE"] . "\n";
   echo "Käyttäjä:" . $_SERVER["DB_USERNAME"] . "\n";
 
+  // Haetaan käyttäjän tiedot sähköpostiosoitteella eli demotaan
+  // model-kansion funktiokutsua.
+  require_once MODEL_DIR . 'kayttaja.php';
+  $user = haeKayttajaSahkopostilla('tunnus@osoi.te');
+
+  // Tulostetaan jokaiselta tulosriviltä käyttäjän sähköpostiosoite.
+  echo "email: $user[email]\n";
+
 ?>
