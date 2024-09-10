@@ -26,6 +26,42 @@ switch ($request) {
       echo $templates->render('uusihaku');
       break;
     }
+  case '/muokkaus':
+    // Tarkistetaan, onko tunniste annettu.
+    require_once MODEL_DIR . 'kayttaja.php';
+    $tunniste = haeKayttajaAvaimella($_GET['avain']);
+    if ($tunniste) {
+      $hakusanat = haeKayttajanHautIdlla($tunniste['idkayttaja']);
+      // Tarkistetaan, onko lomakkeelta lähetetty hakusananpoisto.
+      if (isset($_POST['poista'])) {
+        $formdata = cleanArrayData($_POST);
+        require_once CONTROLLER_DIR . 'poistahaku.php';
+        $tulos = poistaHakusana($formdata);
+        if ($tulos['status'] == "200") {
+          //echo $_SERVER['HTTP_HOST'];
+          header("Location: https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+          break;
+        }
+        break;
+      // Tarkistetaan, onko lomakkeelta lähetetty hakusananlisäys.
+      } elseif (isset($_POST['lisaa'])) {
+        $formdata = cleanArrayData($_POST);
+        require_once CONTROLLER_DIR . 'uusihaku.php';
+        $tulos = lisaaHakusana($formdata);
+        if ($tulos['status'] == "200") {
+          header("Location: https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+          break;
+        }
+        break;
+      } else {
+        echo $templates->render('hakumuokkaus',['tunniste' => $tunniste,
+                                              'hakusanat' => $hakusanat]);
+        break;
+      }
+    } else {
+      echo $templates->render('tunnistenotfound');
+    }
+    break;
   default:
     echo $templates->render('notfound');
 }
