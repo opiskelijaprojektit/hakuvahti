@@ -50,13 +50,38 @@ function lisaaKayttaja($email) {
  * @return array palauttaa tiedot assosiatiivisessa taulukossa
  *
  */
-
 function hae_kayttajat() {
     $kysely = "SELECT idkayttaja, email FROM hakuvahti_kayttaja";
 
     $tulos = DB::run($kysely)->fetchAll(PDO::FETCH_ASSOC);
 
     return $tulos;
+}
+
+/**
+ * Hakee käyttäjän tiedot avaimella.
+ *  
+ * @author Vee Kankaristo
+ * 
+ * @param  string $avain    Haettavan käyttäjän avain.
+ *
+ * @return array            Haetun käyttäjän tiedot.
+ * */
+function haeKayttajaAvaimella($avain) {
+  return DB::run('SELECT idkayttaja, email FROM hakuvahti_kayttaja WHERE avain = ?;', [$avain])->fetch();
+}
+
+/**
+ * Hakee käyttäjän hakusanat pääavaintunnisteella.
+ *  
+ * @author Vee Kankaristo
+ * 
+ * @param  string $idkayttaja   Haettavan käyttäjän pääavaintunniste.
+ *
+ * @return array                Haetun käyttäjän hakusanat.
+ * */
+function haeKayttajanHautIdlla($idkayttaja) {
+  return DB::run('SELECT * FROM hakuvahti_hakusana WHERE idkayttaja = ?;', [$idkayttaja])->fetchAll();
 }
 
 ?>
