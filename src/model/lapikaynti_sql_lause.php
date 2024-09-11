@@ -1,9 +1,11 @@
 <?php
 
-// Tämä funktio on scripts/lapikaynti.php:n
-// SQL-lause
-
-// @author: Ville Kähkönen
+/**
+ * Tämä funktio on scripts/lapikaynti.php:n
+ * ensimmäisen version SQL-lause.
+ * 
+ * @author: Ville Kähkönen
+ */
 
 function lapikaynti_sql_lause() {
   $kysely = "SELECT hakuvahti_kayttaja.email, hakuvahti_hakusana.hakusana
@@ -14,6 +16,5 @@ function lapikaynti_sql_lause() {
 
   return $tulos;
 }
-
 
 ?>
