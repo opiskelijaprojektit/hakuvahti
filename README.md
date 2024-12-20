@@ -16,3 +16,7 @@ Seuraavat henkilöt ovat antaneet oman panoksensa tämän projektin toteutukseen
  - Ville Kähkönen
  - Miro Niska
  - Esko Taivalmäki
+ - Vee Kankaristo
+ - Henrik Blom
+ - Annastiina Koivu
+ - Tuomas Aalto
